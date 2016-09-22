@@ -1,0 +1,6 @@
+object Fail { def main() : Unit = { println("42"); } }
+
+class A {
+    var a  : Int 
+    var b : Bool;
+}

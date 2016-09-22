@@ -1,0 +1,34 @@
+There are three ways that came to our mind on how to extend the simple generic programming approach we defined here. Although, also other extension could have been possible, we chose those, because our language is strongly influenced on the programming language Java, it makes sense to chose their concepts for the next implementation step.
+
+Instead of just allowing type variables for classes, one could also allow these for methods. This is especially the case, when one does not want to have a generic type for the whole class, but only for one method. Accordingly, a generic method could be look like the following:
+
+\begin{lstlisting}
+def print(something: T): Bool [T] { println(something); .... }
+\end{lstlisting}
+
+It is often the case that we would like to specify the generic type that is given in a method or a class. Let’s assume we want to have a generic function ‘max’ that gives us the largest element in a list of elements. How can we implement that without additional knowledge about the element type? Therefore, we constrain the type to extend the Comparable class in order to allow a comparison between two elements (illustrated in Listing \ref{lst:linkedList_Extension}).
+
+\begin{lstlisting}[caption={Extended LinkedList},label={lst:linkedList_Extension}]
+def max( list: LinkedList[T]): T  [T extends Comparable] {
+  var largest: T = list.getFirst();
+  for (int i = 1; i < list.length; i++){
+    if (list.at(i).compareTo(smallest) > 0) smallest = list.at(i);
+  }
+  return smallest;
+}
+\end{lstlisting}
+
+Another idea for an extension is the wildcard ‘?’, which can be found in Java. It represents an unknown type and can be bound to be all classes which extends a certain class. Examples are shown below:
+
+\begin{enumerate}
+	\item \begin{lstlisting}
+	var a: Array[?] = new Array[String];
+	\end{lstlisting}
+	
+	\item \begin{lstlisting}
+	def meth(list: List[? extends Shape]) = {
+	  list.add(...
+	}
+	\end{lstlisting}
+	
+\end{enumerate}

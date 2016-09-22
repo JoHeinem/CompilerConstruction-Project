@@ -1,0 +1,29 @@
+Generics is most commonly used for data structures such as Lists, Trees or Hashmaps, but can also be used for algorithms that should be used with multiple types. Probably, the most famous example for generics is the Linkedlist. Let's assume we want to have a list that allows all the possible classes as types so we do not have to implement the list several times. In order to do that we need to use the most general type for the element. Then this needs to be casted to the desired type. In KOOL that could look like the following example with a list of string elements:
+
+\begin{lstlisting}
+var myList: LinkedList = 
+
+  new LinkedList(); 
+myList.addFirst("Hello world!"); 
+var str: String = (String) myList.getFirst(); 
+\end{lstlisting}
+
+For retrieving the desired string, we have to introduce a cast. However, this brings to problems with it. On the one side the cast is annoying, because it feels unnecessary and is ugly. On the other side run the third line the risk of resulting in a run time error. Although, the programmer should know which type is contained in the list, there mistakes are always possible. Therefore, it would be better to let already the compiler check if the types coincide, so the error is discovered during compile time. This is exactly where generic types come into play. Taking the same example as before, creating and using an object from a class with generics is depicted in listings \ref{lst:linkedList2}.
+
+\begin{lstlisting}[caption={LinkedList},label={lst:linkedList2}]
+var myList: LinkedList[String] = new LinkedList[String]();
+myList.addElement("Hello world!");
+var str: String = myList.getFirst();
+\end{lstlisting}
+
+The corresponding generic LinkedList class is then declared as follows:
+
+\begin{lstlisting}
+class LinkedList[T1] {
+  var next: LinkedList[T1];
+  var elem: T1;
+	
+  def addFirst(elem: T1): Bool = { ... }
+  def getFirst(): T1 = { ... }
+}
+\end{lstlisting}

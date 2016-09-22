@@ -1,0 +1,8 @@
+object Fail { def main() : Unit = { println("42"); }
+
+class Calls {
+    def calls() : Int = {
+        p = k.call(a b);
+        return 1;
+    }
+}

@@ -1,0 +1,7 @@
+object Fail { def main() : Unit = { println("42"); } }
+
+class A {
+    def foo(a : Int, ) : retType = {
+        return 12;
+    }
+}

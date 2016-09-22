@@ -1,0 +1,9 @@
+object Fail { def main() : Unit = { println("42"); } }
+
+class A {
+    def foo() : retType = {
+        // there should be no unary minus!
+        z = -z;
+        return 12;
+    }
+}

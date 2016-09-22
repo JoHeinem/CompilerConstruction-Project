@@ -1,0 +1,14 @@
+Typically, a compiler runs through several different kind of phases in order to transform the source code to bytecode \cite[pp 12-15]{TigerBook:2002}. In the previous part of our project did we implement those steps with the following structure:
+
+\begin{itemize}
+	\item Lexer: Split up the source file into different tokens. 
+	\item Parser: Analyse the phrase structure and build an Abstract Syntax Tree (ABS).
+	\item Name Analysis: Build a symbol tree as basis for type checking. In addition, object binding and definite assignment is performed. 
+	\item Type Checking: Checks the program for type errors.
+	\item Code Generation: Convert the ABS into Java bytecode. 
+\end{itemize}
+
+With this we built a fully functional compiler, that could compile a simple object oriented programming language called KOOL (see \citep{Phaller:2015} for more details). 
+In this part of the project, we introduce a simple form of generics as an extension for this language. Our assignment was then to add type variables to the KOOL compiler, which initiate only a generic class. 
+
+The purpose of generics is to provide classes that can be used with any type and enables type checking at compile-time. This is done by letting the class use an identifier that is only available in that class. When an object declaration of this class occurs, the user specifies which type it would like the object to use instead of this identifier. This enables the type checker to make sure that all methods which use this identifier, then use the type specified by the user. Without generics this would have to be done by creating a list which takes any type and then type-cast the value. This could fail at run time.

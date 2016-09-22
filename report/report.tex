@@ -1,0 +1,50 @@
+\documentclass[nocopyrightspace,11pt,authoryear,preprint]{sigplanconf}
+
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{url}
+\usepackage{natbib} % bibtext bibliothek 
+
+\bibliographystyle{agsm}
+
+\begin{document}\\
+\input{kool-listings}
+
+\title{Generics: Type-Parametric Programming}
+\subtitle{Compiler Construction '15 Final Report}
+
+\authorinfo{Johannes Heinemann\and Patrik Ackland}
+           {KTH - Royal Institute of Technology}
+           {\{heinem,packland\}@kth.se}
+
+\maketitle
+
+\section{Introduction}
+\input{introduction}
+
+\section{Examples}
+\input{examples}
+
+\section{Implementation}
+\input{implementation}
+
+\section{Possible Extensions}
+\input{extensions}
+
+\section{How to compile the code}
+We have only added parts to the existing code and the sbt structure is the same. This means the code is run just like labs 1-6. When standing in the provided folder \emph{koolc}. This is how you would run our provided example program which demonstrates how to use generics with our compiler.
+
+\begin{lstlisting}
+koolc> sbt
+sbt> compile
+sbt> run programs/example/lab7.koolc
+sbt> exit
+koolc> java Example
+\end{lstlisting}
+
+\bibliographystyle{agsm}
+\bibliography{bibliography.bib}
+
+\end{document}

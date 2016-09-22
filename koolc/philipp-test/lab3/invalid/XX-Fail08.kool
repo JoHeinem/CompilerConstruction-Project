@@ -1,0 +1,5 @@
+object Fail { def main() : Unit = { println("42"); } }
+
+class A {
+    String string s; 
+}
